@@ -5,19 +5,13 @@ import { Briefcase, GraduationCap } from 'lucide-react'
 
 const experience = [
   {
-    title: 'Frontend Developer (Self-Learning Journey)',
+    title: 'Mern-Stack Developer (Self-Learning Journey)',
     org: 'Personal Projects',
     period: '2025 — Present',
     desc: 'Building modern web applications using React, Next.js, and Tailwind CSS. Focused on UI/UX, responsive design, and performance optimization while working on real-world portfolio projects.',
     tags: ['React', 'Next.js', 'Tailwind'],
   },
-  {
-    title: 'Sample Technician',
-    org: 'Garments Industry',
-    period: '2018 — Present',
-    desc: '8+ years experience in garments sector. Developed strong problem-solving skills, attention to detail, and workflow management which now helps in software development.',
-    tags: ['Quality Control', 'Problem Solving', 'Discipline'],
-  },
+
 ]
 
 const education = [
@@ -29,18 +23,18 @@ const education = [
     tags: ['MERN', 'Firebase', 'REST API'],
   },
   {
-    title: 'HSC (commerce)',
-    org: 'Satkhira Govt College',
+    title: 'Bsc',
+    org: 'Green University of Bangladesh',
     period: '2022',
-    desc: 'Completed higher secondary education in commerce with strong foundation in economics and  business.',
-    tags: ['Commerce', 'Math', 'Business'],
+    desc: '3rd year running',
+    tags: ['Psychology', 'Anthropology', 'Sociology'],
   },
   {
-    title: 'SSC (commerce)',
-    org: 'Kadakati Arar High School',
-    period: '2019',
-    desc: 'Completed secondary education in commerce.',
-    tags: ['commerce', 'Math', 'Business'],
+    title: 'HSC (arts)',
+    org: 'Govt Mahatab Uddin degree college',
+    period: '2020',
+    desc: 'Completed HSC with a focus on arts subjects, gaining foundational knowledge in humanities and social sciences.',
+    tags: ['arts', ' Literature', 'History'],
   },
 ]
 
