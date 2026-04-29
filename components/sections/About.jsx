@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import myImg from '@/app/assets/my.png'
+import myImg from '@/app/assets/my.jpg'
 
 const skills = [
   { name: 'React', level: 90, color: '#61dafb' },
