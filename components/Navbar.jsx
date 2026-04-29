@@ -7,7 +7,7 @@ import { Menu, X } from 'lucide-react'
 const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#about' },
+  { label: 'Skills', href: '#skills' }, // এখানে href ঠিক করা হয়েছে
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#footer' },
 ]
@@ -22,10 +22,27 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const handleNav = (href) => {
-    setMenuOpen(false)
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  // নেভিগেশন হ্যান্ডলার
+  const handleNav = (e, href) => {
+    e.preventDefault(); // ডিফল্ট অ্যাঙ্কর ট্যাগ বিহেভিয়ার বন্ধ করা
+    setMenuOpen(false); // মোবাইল মেনু বন্ধ করা
+    
+    // নির্দিষ্ট সেকশন আইডি ধরে স্ক্রল করা
+    const targetId = href.replace('#', '');
+    const el = document.getElementById(targetId);
+    
+    if (el) {
+      const offset = 80; // নেভবারের হাইট অনুযায়ী অফসেট
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = el.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   }
 
   return (
@@ -44,12 +61,12 @@ export default function Navbar() {
           {/* Logo */}
           <motion.a
             href="#home"
-            onClick={() => handleNav('#home')}
+            onClick={(e) => handleNav(e, '#home')}
             className="flex items-center gap-2 cursor-pointer"
             whileHover={{ scale: 1.02 }}
           >
             <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-[#090c0f] font-bold text-sm shadow-glow-sm">
-              BH
+              NR
             </span>
             <span className="text-white font-bold text-lg tracking-tight">
               Noor<span className="gradient-text">.</span>
@@ -66,7 +83,7 @@ export default function Navbar() {
                 transition={{ delay: 0.1 * i + 0.3 }}
               >
                 <button
-                  onClick={() => handleNav(link.href)}
+                  onClick={(e) => handleNav(e, link.href)}
                   className="relative px-4 py-2 text-sm font-medium text-slate-400 hover:text-white transition-colors group"
                 >
                   {link.label}
@@ -76,12 +93,12 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* CTA */}
+          {/* CTA Desktop */}
           <motion.button
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            onClick={() => handleNav('#footer')}
+            onClick={(e) => handleNav(e, '#footer')}
             className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-emerald-500 to-emerald-600 text-[#090c0f] hover:shadow-glow transition-all duration-300 hover:scale-105 active:scale-95"
           >
             Hire Me
@@ -90,9 +107,9 @@ export default function Navbar() {
           {/* Mobile menu toggle */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-slate-300 hover:text-white transition-colors"
+            className="md:hidden text-slate-300 hover:text-white transition-colors p-2"
           >
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -104,21 +121,21 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-white/10 overflow-hidden"
+            className="md:hidden glass border-t border-white/10 overflow-hidden bg-[#090c0f]/95 backdrop-blur-lg"
           >
-            <div className="px-6 py-4 flex flex-col gap-2">
+            <div className="px-6 py-6 flex flex-col gap-3">
               {navLinks.map((link) => (
                 <button
                   key={link.label}
-                  onClick={() => handleNav(link.href)}
-                  className="text-left px-3 py-2.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all text-sm font-medium"
+                  onClick={(e) => handleNav(e, link.href)}
+                  className="text-left px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all text-base font-medium border border-transparent hover:border-white/10"
                 >
                   {link.label}
                 </button>
               ))}
               <button
-                onClick={() => handleNav('#footer')}
-                className="mt-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-emerald-500 to-emerald-600 text-[#090c0f]"
+                onClick={(e) => handleNav(e, '#footer')}
+                className="mt-4 px-5 py-3 rounded-xl text-center text-sm font-bold bg-gradient-to-r from-emerald-500 to-emerald-600 text-[#090c0f] active:scale-95 transition-transform"
               >
                 Hire Me
               </button>
