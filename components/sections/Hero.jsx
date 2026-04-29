@@ -26,7 +26,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-6 md:space-y-10" // স্পেসিং কিছুটা বাড়ানো হয়েছে ক্লিনিং লুকের জন্য
+          className="space-y-6 md:space-y-10" 
         >
           <div className="space-y-4">
             {/* Badge - Smaller & Crisper */}
@@ -109,7 +109,7 @@ export default function Hero() {
             <div className="relative z-10 w-full h-full rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl bg-slate-900">
               <Image
                 src={myImg}
-                alt="Babul Hossan"
+                alt="Ahosanul Haque Noor"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -118,7 +118,7 @@ export default function Hero() {
               <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/90 to-transparent backdrop-blur-sm">
                 <div className="flex justify-between items-end">
                   <div>
-                    <h3 className="text-xl font-bold">Md Babul Hossan</h3>
+                    <h3 className="text-xl font-bold">Ahosanul Haque Noor</h3>
                     <p className="text-emerald-400 font-mono text-xs tracking-widest uppercase mt-1">Full-Stack Architect</p>
                   </div>
                   <div className="px-4 py-2 bg-white/10 rounded-xl border border-white/10 text-[10px] font-black uppercase">
