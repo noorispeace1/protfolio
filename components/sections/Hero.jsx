@@ -1,5 +1,5 @@
 'use client'
-import myImg from '../../app/assets/my.png'
+import myImg from '../../app/assets/my.jpg'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Github, Linkedin, ArrowDown, Download, ExternalLink, Mail } from 'lucide-react'

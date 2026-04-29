@@ -52,7 +52,7 @@ export default function Navbar() {
               BH
             </span>
             <span className="text-white font-bold text-lg tracking-tight">
-              Babul<span className="gradient-text">.</span>
+              Noor<span className="gradient-text">.</span>
             </span>
           </motion.a>
 
